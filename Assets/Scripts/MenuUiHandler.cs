@@ -16,23 +16,14 @@ using UnityEngine.UIElements;
 public class MenuUiHandler : MonoBehaviour {
 
     public TMP_InputField register_username;
-    public static MenuUiHandler mm;
-    public string playerName;
 
-    private void Awake()
+    public void Start()
     {
-        if (mm != null)
-        {
-            Destroy(gameObject);
-            return;
-        }
-        mm = this;
-        DontDestroyOnLoad(gameObject);
+        ChangeName();
     }
-
     public void ChangeName()
     {
-        mm.playerName = register_username.text;
+        DataKeeper.dk.playerName = register_username.text;
     }
 
     public void StartNew()
